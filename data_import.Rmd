@@ -16,7 +16,7 @@ Import the dataset and clean the names.
 
 ```{r}
 
-litters_df <- read_csv("data_import_examples/FAS_litters.csv")
+litters_df <- read_csv(file = "data_import_examples/FAS_litters.csv")
 litters_df <- janitor::clean_names(litters_df)
 
 ```
@@ -39,11 +39,58 @@ view(litters_df)
 
 ```
 
+## Skipping Data
+
+Not necessary here, but if there are "data rules" in the first few lines, use "skip = n" 
+within the read_csv command.
+
+## Missing Data
+
+Use the "na" parameter to specify what you want to be listed as "NA" so that R reads number variables
+as numbers as opposed to characters.
+
+```{r}
+
+litters_df <- 
+  read_csv(
+    file = "data_import_examples/FAS_litters.csv",
+    na = c("NA", "", ".")                     
+  )
+
+litters_df <- janitor::clean_names(litters_df)
+
+```
+## Calculate Mean of a Column of a Tibble
+
+```{r}
+
+mean(pull(litters_df, gd0_weight), na.rm = TRUE)
+
+```
+
+## Coding "Group" as a Factor Variable
+
+```{r}
+
+litters_df <- 
+  read_csv(
+    file = "data_import_examples/FAS_litters.csv",
+    na = c("NA", "", "."),
+    col_types = cols(
+      Group = col_factor()
+    )
+  )
+
+litters_df <- janitor::clean_names(litters_df)
+
+```
+
+
 ## Import the FAS Pups CSV
 
 ```{r}
 
-pups_df <- read_csv("data_import_examples/FAS_pups.csv")
+pups_df <- read_csv(file = "data_import_examples/FAS_pups.csv")
 
 ```
 

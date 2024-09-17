@@ -115,3 +115,15 @@ pulse_df <- read_sas("data_import_examples/public_pulse_data.sas7bdat")
 
 ```
 
+## Never use read.csv(), use read_csv() only
+
+```{r}
+
+litters_df_bad <- read.csv("data_import_examples/FAS_litters.csv")
+head(litters_df_bad, 10)
+
+# tibble command read_csv also requires you to make exact references to columns
+# don't use dollar signs -- not necessary to take column out of data frame
+
+```
+

@@ -8,6 +8,7 @@ output: github_document
 ```{r setup, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(readxl)
 ```
 
 ## Import the FAS Litters CSV
@@ -94,4 +95,14 @@ pups_df <- read_csv(file = "data_import_examples/FAS_pups.csv")
 
 ```
 
+## Import an Excel File: MLB 2011 Summary Data (readxl package necessary)
+
+```{r}
+
+mlb_df <- read_excel(
+  "data_import_examples/mlb11.xlsx", 
+  sheet = "mlb11"
+  ) 
+
+```
 

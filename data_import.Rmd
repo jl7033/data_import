@@ -39,3 +39,12 @@ view(litters_df)
 
 ```
 
+## Import the FAS Pups CSV
+
+```{r}
+
+pups_df <- read_csv("data_import_examples/FAS_pups.csv")
+
+```
+
+
